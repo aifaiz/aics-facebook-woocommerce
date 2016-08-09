@@ -15,6 +15,22 @@ Woocommerce plugin for facebook login
 ### Checkout Login Button
 ![login button](shot/login-button.png)
 
+---
+
+## How to install this plugin
+
+1. download this repo as zip file
+2. go to your admin page for managing plugin `yourdomain.com/wp-admin/plugin-install.php?tab=upload`
+3. upload the zip file you had just downloaded.
+4. done. you can now begin setting up the plugin api and start getting user to login using facebook.
+
+---
+
+## How to get the APP ID & APP Secret ?
+
+in order for this plugin to work, it will require you to generate your own facebook APP in the developers.facebook.com section
+
+you can go to `http://developers.facebook.com` and create your app. they will generate your app ID and app Secret
 
 ---
 developer: [AiCS Businesses](http://aics.my)
