@@ -35,7 +35,9 @@ class AicsFbClass {
             $permissions = ['email','public_profile']; // Optional permissions
             $wp_login_url = $this->determineLoginPageLanding();
             $loginUrl = $helper->getLoginUrl($wp_login_url, $permissions);
-            return '<a href="' . htmlspecialchars($loginUrl) . '" class="'.$extra_class.'"><i class="fa fa-facebook"></i> Log in with Facebook!</a>';
+                $html = '<style>.fbloginbtn{background:#3b5998; color:#fff;padding:10px;}.fbloginbtn:hover{color:#fff;}</style>';
+            $html .= '<a href="' . htmlspecialchars($loginUrl) . '" class="fbloginbtn '.$extra_class.'"><i class="fa fa-facebook"></i> | Log in with Facebook!</a>';
+            return $html;
         else:
             return '<i class="fa fa-facebook"></i><i>acebook login is installed but not setup properly.</i>';
         endif;
