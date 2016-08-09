@@ -90,9 +90,7 @@ class AicsFbClass {
                 // if not yet registered. we regiter.
                 $username = $this->generateUsernameFromEmail($user['email']);
                 $user_id = register_new_user($username,$user['email']);
-                $wp_user = new WP_User($user_id);
-                $wp_user->display_name = $user['name'];
-                wp_update_user($wp_user);
+                
                 $arr_fbinsert = array(
                                       'fbid'=>$user['id'],
                                       'fbemail'=>$user['email'],
@@ -100,21 +98,29 @@ class AicsFbClass {
                                       'fullname'=>$user['name'],
                                       'created_at'=>date('YmdHis'));
                 $wpdb->insert($wpdb->prefix.'aics_fb_login', $arr_fbinsert);
-                if($wp_user):
-                     wp_set_current_user($wp_user->ID, $wp_user->user_login);
-                     wp_set_auth_cookie( $wp_user->ID );
-                     do_action( 'wp_login', $wp_user->user_login );
-                     $_SESSION['finished_logged_in'] = 'yes';
-                endif;
+                
+                $arr_update_user = array(
+                                         'ID'=>$user_id,
+                                         'display_name'=>$user['name'],
+                                         'first_name'=>$user['name']);
+                wp_update_user($arr_update_user);
+                
+                
+                // login wp
+                wp_set_current_user($user_id, $username);
+                wp_set_auth_cookie( $user_id );
+                do_action( 'wp_login', $username );
+                $_SESSION['finished_logged_in'] = 'yes';
+                
             else:
                 // already registered. we login.
                 $userdata = $this->getUserIdFromEmail($user['email']);
-                $user = get_user_by( 'id', $userdata['id'] );
+                $wpuser = get_user_by( 'id', $userdata['id'] );
                 //aidebug($user); exit;
-                if($user):
-                     wp_set_current_user($user->ID, $user->user_login);
-                     wp_set_auth_cookie( $user->ID );
-                     do_action( 'wp_login', $user->user_login );
+                if($wpuser):
+                     wp_set_current_user($wpuser->ID, $wpuser->user_login);
+                     wp_set_auth_cookie( $wpuser->ID );
+                     do_action( 'wp_login', $wpuser->user_login );
                      $_SESSION['finished_logged_in'] = 'yes';
                 endif;
             endif;
@@ -122,11 +128,11 @@ class AicsFbClass {
             $check_fb_email = $this->checkFbUserEmail($user['email']);
             if($check_fb_email == false):
                 $userdata = $this->getUserIdFromEmail($user['email']);
-                $user = get_user_by( 'id', $userdata['id'] );
+                $wpuser = get_user_by( 'id', $userdata['id'] );
                 $arr_fbinsert = array(
                                       'fbid'=>$user['id'],
                                       'fbemail'=>$user['email'],
-                                      'user_id'=>$user->ID,
+                                      'user_id'=>$wpuser->ID,
                                       'fullname'=>$user['name'],
                                       'created_at'=>date('YmdHis'));
                 $wpdb->insert($wpdb->prefix.'aics_fb_login', $arr_fbinsert);
