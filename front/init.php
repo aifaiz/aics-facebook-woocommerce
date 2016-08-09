@@ -30,7 +30,7 @@ function after_logged_in(){
         global $post;
         $url = get_permalink($post->ID);
         $_SESSION['finished_logged_in'] = null;
-        wp_redirect($url.'?proceted=oktest');
+        //wp_redirect($url.'?proceted=oktest');
     endif;
 }
 add_action('init','after_logged_in');
