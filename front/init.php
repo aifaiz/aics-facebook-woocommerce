@@ -14,6 +14,9 @@ function load_login_button_areas(){
 add_action('plugins_loaded', 'load_login_button_areas');
 
 function process_facebook_login(){
+    if(!isset($_SESSION['aifb_atoken']) && empty($_SESSION['aifb_atoken'])):
+        session_start();
+    endif;
     if(isset($_GET['code']) && !empty($_GET['code'])):
         $aifb = new AicsFbClass();
         $aifb->processFbResponse();
@@ -22,9 +25,12 @@ function process_facebook_login(){
 }
 add_action('init', 'process_facebook_login');
 
-function start_session_on_init(){
-    if(!session_start()):
-        session_start();
+function after_logged_in(){
+    if(isset($_SESSION['finished_logged_in']) && $_SESSION['finished_logged_in'] == 'yes'):
+        global $post;
+        $url = get_permalink($post->ID);
+        $_SESSION['finished_logged_in'] = null;
+        wp_redirect($url.'?proceted=oktest');
     endif;
 }
-add_action('init','start_session_on_init');
+add_action('init','after_logged_in');

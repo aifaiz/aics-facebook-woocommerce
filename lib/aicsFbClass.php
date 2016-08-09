@@ -41,11 +41,8 @@ class AicsFbClass {
     }
     
     public function determineLoginPageLanding(){
-        if(class_exists( 'WooCommerce' )):
-            return WC_Cart::get_checkout_url();
-        else:
-            return wp_login_url( home_url() );
-        endif;
+        global $post;
+        return get_permalink($post->ID);
     }
     
     public function processFbResponse(){
@@ -53,6 +50,7 @@ class AicsFbClass {
             $helper = $this->fb->getRedirectLoginHelper();
             try {
                 $accessToken = $helper->getAccessToken();
+                $this->fb->setDefaultAccessToken($accessToken);
                 setcookie("aicsfb_cookie_token", $accessToken, time()+3600);
                 $_SESSION['aifb_atoken'] = $accessToken;
               } catch(Facebook\Exceptions\FacebookResponseException $e) {
@@ -108,6 +106,7 @@ class AicsFbClass {
                      wp_set_current_user($user->ID, $user->user_login);
                      wp_set_auth_cookie( $user->ID );
                      do_action( 'wp_login', $user->user_login );
+                     $_SESSION['finished_logged_in'] = 'yes';
                 endif;
             endif;
         endif;
