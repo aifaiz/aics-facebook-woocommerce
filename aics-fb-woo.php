@@ -29,7 +29,7 @@ function aicsfb_initiate_install(){
   
   require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
   dbDelta( $sql );
-  add_option( 'aics_fb_db_version', $aics_fb_db_version );
+  update_option( 'aics_fb_dbversion', $aics_fb_db_version );
 }
 register_activation_hook( __FILE__, 'aicsfb_initiate_install' );
 

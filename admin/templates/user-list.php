@@ -1,6 +1,4 @@
-<?php
-$lists = getFbLoggedinUsers(); 
-?>
+<?php $lists = getFbLoggedinUsers();  ?>
 <div class="wrap">
     <h1>Facebook Logged-in Users</h1><hr>
     <table class="widefat">

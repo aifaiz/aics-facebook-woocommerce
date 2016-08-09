@@ -1,5 +1,6 @@
-<?php defined( 'ABSPATH' ) or die( 'nope.. just nope' ); ?>
-<?php $sttings = getFbAppSetting(); ?>
+<?php defined( 'ABSPATH' ) or die( 'nope.. just nope' );
+$sttings = getFbAppSetting();
+?>
 <div class="wrap">
     <?php if(isset($_GET['success']) && $_GET['success'] == 1): ?>
         <div class="updated"><p>Settings Updated.</p></div>
