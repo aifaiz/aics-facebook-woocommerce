@@ -7,7 +7,7 @@ Woocommerce plugin for facebook login
 plugin developed by the request from Like Method Members
 
 ```
-![what is like method?](https://goo.gl/VmTwIM)
+[what is like method?](https://goo.gl/VmTwIM)
 
 ---
 
