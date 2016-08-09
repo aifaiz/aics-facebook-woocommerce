@@ -32,6 +32,10 @@ in order for this plugin to work, it will require you to generate your own faceb
 
 you can go to `http://developers.facebook.com` and create your app. they will generate your app ID and app Secret
 
+### Example facebook app
+
+![facebook app aics](shot/facebook-app.png)
+
 ---
 developer: [AiCS Businesses](http://aics.my)
 
