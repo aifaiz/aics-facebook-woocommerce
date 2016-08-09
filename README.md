@@ -3,7 +3,8 @@
 Woocommerce plugin for facebook login
 
 ```
-developed by the request from Like Method Members
+
+plugin developed by the request from Like Method Members
 
 ```
 ---

@@ -7,9 +7,6 @@ class AicsFbClass {
     public $enabled;
     public function __construct(){
         $this->enabled = 'no';
-        if(!session_start()):
-            session_start();
-        endif;
         $settings = getFbAppSetting();
         $this->appID = $settings['id'];
         $this->appSecret = $settings['secret'];

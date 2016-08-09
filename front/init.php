@@ -21,3 +21,10 @@ function process_facebook_login(){
     endif;
 }
 add_action('init', 'process_facebook_login');
+
+function start_session_on_init(){
+    if(!session_start()):
+        session_start();
+    endif;
+}
+add_action('init','start_session_on_init');
