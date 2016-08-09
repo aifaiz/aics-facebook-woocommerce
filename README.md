@@ -1,6 +1,11 @@
-# aics-facebook-woocommerce
+# Woocommerce Facebook Login
+
 Woocommerce plugin for facebook login
 
+```
+developed by the request from Like Method Members
+
+```
 ---
 
 ### Admin menu
