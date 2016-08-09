@@ -28,15 +28,9 @@ function process_aics_fbsetting(){
     if(isset($_POST['aics_fbsetting']) && $_POST['aics_fbsetting'] == '1'):
         $facebook_app_id = $_POST['facebook_app_id'];
         $facebook_secret = $_POST['facebook_secret'];
-        $fb_setting = getFbAppSetting();
-        if(empty($fb_setting['id']) && empty($fb_setting['secret'])):
-            // create it
-            add_option('aics_fb_app_id', $facebook_app_id);
-            add_option('aics_fb_secret', $facebook_secret);
-        else:
-            update_option('aics_fb_app_id', $facebook_app_id);
-            update_option('aics_fb_secret', $facebook_secret);
-        endif;
+        //$fb_setting = getFbAppSetting();
+        update_option('aics_fb_app_id', $facebook_app_id);
+        update_option('aics_fb_secret', $facebook_secret);
         
         wp_redirect(admin_url('admin.php?page=ai-fb-login&success=1'));
     endif;

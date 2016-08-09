@@ -14,7 +14,7 @@ class AicsFbClass {
         $this->appID = $settings['id'];
         $this->appSecret = $settings['secret'];
         
-        if(isset($settings['id']) && !empty($settings['secret'])):
+        if(!empty($settings['secret'])):
             $this->initializeFb();
             $this->enabled = 'yes';
         endif;
