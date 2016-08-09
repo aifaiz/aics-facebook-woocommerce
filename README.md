@@ -24,13 +24,15 @@ Woocommerce plugin for facebook login
 3. upload the zip file you had just downloaded.
 4. done. you can now begin setting up the plugin api and start getting user to login using facebook.
 
----
-
 ## How to get the APP ID & APP Secret ?
 
 in order for this plugin to work, it will require you to generate your own facebook APP in the developers.facebook.com section
 
 you can go to `http://developers.facebook.com` and create your app. they will generate your app ID and app Secret
+
+### How facebook developer look like ` as in August 2016 `
+
+![facbook developer](shot/facebook-developer-shot.png)
 
 ### Example facebook app
 
