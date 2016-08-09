@@ -34,3 +34,8 @@ function after_logged_in(){
     endif;
 }
 add_action('init','after_logged_in');
+
+function if_denied(){
+    //error=access_denied
+    // coming soon
+}

@@ -46,6 +46,10 @@ you can go to `http://developers.facebook.com` and create your app. they will ge
 ![facebook app aics](shot/facebook-app.png)
 
 ---
+## Extra! video guide.
+[![video plugin guide](http://i3.ytimg.com/vi/tykYT85Hob0/hqdefault.jpg)](https://www.youtube.com/watch?v=tykYT85Hob0)
+
+---
 developer: [AiCS Businesses](http://aics.my)
 
 ![AiCS](http://aics.my/templates/aics/img/aics-web-logo.png "AiCS Businesses")
